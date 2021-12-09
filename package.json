@@ -1,0 +1,33 @@
+{
+  "name": "revup-language-support",
+  "author": "RadGuild",
+  "license": "MIT",
+  "version": "0.0.1",
+  "categories": [],
+  "keywords": [],
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "activationEvents": [
+    "onLanguage:plaintext"
+  ],
+  "main": "./vscode-extension/out/extension",
+  "contributes": {},
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./vscode-extension/src ./language-server/src --ext .ts,.tsx",
+    "postinstall": "cd vscode-extension && npm install && cd ../language-server && npm install && cd ..",
+    "test": "sh ./scripts/e2e.sh"
+  },
+  "devDependencies": {
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^12.12.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "eslint": "^7.26.0",
+    "mocha": "^8.3.2",
+    "typescript": "^4.4.3"
+  }
+}

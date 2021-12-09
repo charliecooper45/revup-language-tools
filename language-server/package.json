@@ -1,0 +1,16 @@
+{
+  "name": "language-server",
+  "displayName": "RadGuild - Revup Language Server",
+  "description": "Revup language server written in Node.",
+  "version": "0.0.1",
+  "author": "RadGuild",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^7.0.0",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
+  "scripts": {}
+}

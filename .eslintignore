@@ -1,0 +1,5 @@
+node_modules/**
+vscode-extension/node_modules/**
+vscode-extension/out/**
+language-server/node_modules/**
+language-server/out/**
