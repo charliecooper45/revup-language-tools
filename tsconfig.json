@@ -9,8 +9,5 @@
   },
   "include": ["src"],
   "exclude": ["node_modules", ".vscode-test"],
-  "references": [
-    { "path": "./vscode-extension" },
-    { "path": "./language-server" }
-  ]
+  "references": [{ "path": "./language-server" }]
 }

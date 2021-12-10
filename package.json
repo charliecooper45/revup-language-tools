@@ -1,33 +1,42 @@
 {
-  "name": "revup-language-support",
+  "name": "revup",
+  "displayName": "revup",
+  "description": "Syntax highlighting and code completion for revup files.",
   "author": "RadGuild",
+  "publisher": "RadGuild",
   "license": "MIT",
   "version": "0.0.1",
   "categories": [],
   "keywords": [],
+  "icon": "logo.png",
   "engines": {
-    "vscode": "^1.43.0"
+    "vscode": "^1.52.0"
   },
   "activationEvents": [
     "onLanguage:plaintext"
   ],
-  "main": "./vscode-extension/out/extension",
+  "main": "./out/extension",
   "contributes": {},
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/charliecooper45/revup-language-tools"
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -b",
     "watch": "tsc -b -w",
-    "lint": "eslint ./vscode-extension/src ./language-server/src --ext .ts,.tsx",
-    "postinstall": "cd vscode-extension && npm install && cd ../language-server && npm install && cd ..",
-    "test": "sh ./scripts/e2e.sh"
+    "lint": "eslint ./src ./language-server/src --ext .ts,.tsx",
+    "postinstall": "cd ./language-server && npm install && cd .."
+  },
+  "dependencies": {
+    "vscode-languageclient": "^7.0.0"
   },
   "devDependencies": {
-    "@types/mocha": "^8.2.2",
     "@types/node": "^12.12.0",
+    "@types/vscode": "^1.52.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
-    "eslint": "^7.26.0",
-    "mocha": "^8.3.2",
+    "eslint": "^7.32.0",
     "typescript": "^4.4.3"
   }
 }
