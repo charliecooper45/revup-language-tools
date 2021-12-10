@@ -3,6 +3,18 @@ import { RevupCommand } from '../types';
 
 const completionItems: CompletionItem[] = [
   {
+    label: '-e 1',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.EPOCH,
+    detail: 'Increases or displays the current epoch.',
+  },
+  {
+    label: 'new-account -> account pubkey',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.NEW_ACCOUNT,
+    detail: 'Creates a new account.',
+  },
+  {
     label: 'publish . -> package',
     kind: CompletionItemKind.Text,
     data: RevupCommand.PUBLISH,
@@ -13,6 +25,12 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.RESET,
     detail: 'Clears resim data and resets the environment.',
+  },
+  {
+    label: 'set-default-account $account $pubkey',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.SET_ACCOUNT,
+    detail: 'Sets the default account.',
   },
   {
     label: 'show-configs',

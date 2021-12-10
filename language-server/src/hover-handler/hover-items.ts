@@ -7,6 +7,29 @@ export interface HoverItem {
 
 export const hoverItems: HoverItem[] = [
   {
+    command: RevupCommand.EPOCH,
+    value: [
+      '```',
+      '-e <increment>',
+      '```',
+      '---',
+      'Increases or displays the current epoch.',
+      '- \\<increment>: value added to epoch (optional)',
+    ].join('\n'),
+  },
+  {
+    command: RevupCommand.NEW_ACCOUNT,
+    value: [
+      '```',
+      'new-account -> <account> <pubkey>',
+      '```',
+      '---',
+      'Creates a new account. Set as default account if the first account created.',
+      '- \\<account>: the account address',
+      "- \\<pubkey>: the account's public key",
+    ].join('\n'),
+  },
+  {
     command: RevupCommand.PUBLISH,
     value: [
       '```',
@@ -14,7 +37,7 @@ export const hoverItems: HoverItem[] = [
       '```',
       '---',
       'Publishes the package.',
-      '- \\<package>: the returned package',
+      '- \\<package>: the package',
     ].join('\n'),
   },
   {
@@ -25,6 +48,18 @@ export const hoverItems: HoverItem[] = [
       '```',
       '---',
       'Clears the resim data directory and resets the environment.',
+    ].join('\n'),
+  },
+  {
+    command: RevupCommand.SET_ACCOUNT,
+    value: [
+      '```',
+      'set-default-account $account $pubkey',
+      '```',
+      '---',
+      'Sets the default account.',
+      "- \\$account: the account's address",
+      "- \\$pubkey: the account's public key",
     ].join('\n'),
   },
   {
