@@ -63,6 +63,17 @@ export const hoverItems: HoverItem[] = [
     ].join('\n'),
   },
   {
+    command: RevupCommand.SHOW,
+    value: [
+      '```',
+      'show $address',
+      '```',
+      '---',
+      'Shows info about an address.',
+      '- \\$address: the address',
+    ].join('\n'),
+  },
+  {
     command: RevupCommand.SHOW_CONFIGS,
     value: [
       '```',

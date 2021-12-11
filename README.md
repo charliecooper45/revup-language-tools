@@ -20,6 +20,7 @@
 - `publish`
 - `reset`
 - `set-default-account`
+- `show`
 - `show-configs`
 
 ## Installing locally
@@ -27,6 +28,8 @@
 The extension is not currently published to the [marketplace](https://marketplace.visualstudio.com/vscode).
 
 To install locally from the root of the project:
+
+`npm install`
 
 `npm install -g vsce`
 

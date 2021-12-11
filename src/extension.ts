@@ -26,8 +26,7 @@ export function activate(context: ExtensionContext) {
   };
 
   const clientOptions: LanguageClientOptions = {
-    // TODO: define a "revup" language
-    documentSelector: [{ scheme: 'file', language: 'plaintext' }],
+    documentSelector: [{ scheme: 'file', language: 'revup' }],
   };
 
   client = new LanguageClient(

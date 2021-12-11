@@ -4,5 +4,6 @@ export enum RevupCommand {
   RESET = 'reset',
   PUBLISH = 'publish',
   SET_ACCOUNT = 'set-default-account',
+  SHOW = 'show',
   SHOW_CONFIGS = 'show-configs',
 }

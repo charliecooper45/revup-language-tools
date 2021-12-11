@@ -33,6 +33,12 @@ const completionItems: CompletionItem[] = [
     detail: 'Sets the default account.',
   },
   {
+    label: 'show $address',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.SHOW,
+    detail: 'Shows info about an address.',
+  },
+  {
     label: 'show-configs',
     kind: CompletionItemKind.Text,
     data: RevupCommand.SHOW_CONFIGS,
