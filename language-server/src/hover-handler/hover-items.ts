@@ -1,86 +1,120 @@
 import { RevupCommand } from '../types';
 
 export interface HoverItem {
-  command: RevupCommand;
+  revupCommand: RevupCommand;
+  commands: string[];
   value: string;
+}
+
+function buildValue(titles: string[], body: string[]): string {
+  const mappedTitles = titles
+    .map((title) => {
+      return ['```', title, '```'];
+    })
+    .flat();
+  return [...mappedTitles, '---', ...body].join('\n');
 }
 
 export const hoverItems: HoverItem[] = [
   {
-    command: RevupCommand.EPOCH,
-    value: [
-      '```',
-      '-e <increment>',
-      '```',
-      '---',
-      'Increases or displays the current epoch.',
-      '- \\<increment>: value added to epoch (optional)',
-    ].join('\n'),
+    revupCommand: RevupCommand.CALL_METHOD,
+    commands: ['call-method'],
+    value: buildValue(
+      ['call-method <component> <method> <args> -> <response>'],
+      [
+        'Calls a method on a component.',
+        '- \\<component> the component',
+        '- \\<method> the method to call',
+        '- \\<args> the args (optional)',
+        '- \\<response> the response (optional)',
+      ]
+    ),
   },
   {
-    command: RevupCommand.NEW_ACCOUNT,
-    value: [
-      '```',
-      'new-account -> <account> <pubkey>',
-      '```',
-      '---',
-      'Creates a new account. Set as default account if the first account created.',
-      '- \\<account>: the account address',
-      "- \\<pubkey>: the account's public key",
-    ].join('\n'),
+    revupCommand: RevupCommand.CALL_FUNCTION,
+    commands: ['call-function'],
+    value: buildValue(
+      [
+        'call-function <package> <blueprint> <function> <args> -> <response>',
+        'call-function <package> <blueprint> new <args> -> <resDef> <component>',
+      ],
+      [
+        'Creates a new component (with new) or calls a function on a blueprint.',
+        '- \\<package> the package',
+        '- \\<blueprint> the blueprint',
+        '- \\<function> the function/new',
+        '- \\<args> the args (optional)',
+        '- \\<response> the response (optional)',
+        '- \\<resDef> the resource definition (new)',
+        '- \\<component> the component (new)',
+      ]
+    ),
   },
   {
-    command: RevupCommand.PUBLISH,
-    value: [
-      '```',
-      'publish . -> <package>',
-      '```',
-      '---',
-      'Publishes the package.',
-      '- \\<package>: the package',
-    ].join('\n'),
+    revupCommand: RevupCommand.EPOCH,
+    commands: ['-e'],
+    value: buildValue(
+      ['-e <increment>'],
+      [
+        'Increases or displays the current epoch.',
+        '- \\<increment> value added to epoch (optional)',
+      ]
+    ),
   },
   {
-    command: RevupCommand.RESET,
-    value: [
-      '```',
-      'reset',
-      '```',
-      '---',
-      'Clears the resim data directory and resets the environment.',
-    ].join('\n'),
+    revupCommand: RevupCommand.NEW_ACCOUNT,
+    commands: ['new-account'],
+    value: buildValue(
+      ['new-account -> <account> <pubkey>'],
+      [
+        'Creates a new account. Set as default account if the first account created.',
+        '- \\<account> the account',
+        "- \\<pubkey> the account's public key",
+      ]
+    ),
   },
   {
-    command: RevupCommand.SET_ACCOUNT,
-    value: [
-      '```',
-      'set-default-account $account $pubkey',
-      '```',
-      '---',
-      'Sets the default account.',
-      "- \\$account: the account's address",
-      "- \\$pubkey: the account's public key",
-    ].join('\n'),
+    revupCommand: RevupCommand.PUBLISH,
+    commands: ['publish'],
+    value: buildValue(
+      ['publish . -> <package>'],
+      ['Publishes the package.', '- \\<package> the package']
+    ),
   },
   {
-    command: RevupCommand.SHOW,
-    value: [
-      '```',
-      'show $address',
-      '```',
-      '---',
-      'Shows info about an address.',
-      '- \\$address: the address',
-    ].join('\n'),
+    revupCommand: RevupCommand.RESET,
+    commands: ['reset'],
+    value: buildValue(
+      ['reset'],
+      ['Clears the resim data directory and resets the environment.']
+    ),
   },
   {
-    command: RevupCommand.SHOW_CONFIGS,
-    value: [
-      '```',
-      'show-configs',
-      '```',
-      '---',
-      'Prints the default account, current epoch and nonce.',
-    ].join('\n'),
+    revupCommand: RevupCommand.SET_ACCOUNT,
+    commands: ['set-default-account'],
+    value: buildValue(
+      ['set-default-account <account> <pubkey>'],
+      [
+        'Sets the default account.',
+        '- \\<account> the account',
+        "- \\<pubkey> the account's public key",
+      ]
+    ),
+  },
+  {
+    revupCommand: RevupCommand.SHOW,
+    commands: ['show'],
+    value: buildValue(
+      ['show <address>'],
+      ['Shows info about an address.', '- \\<address> the address']
+    ),
+  },
+  {
+    revupCommand: RevupCommand.SHOW_CONFIGS,
+    commands: ['show-configs'],
+    value: buildValue(
+      ['show-configs'],
+      ['Prints the default account, current epoch and nonce.']
+    ),
   },
 ];

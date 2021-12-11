@@ -15,6 +15,8 @@
 
 ## Supported Commands
 
+- `call-method`
+- `call-function`
 - `-e`
 - `new-account`
 - `publish`

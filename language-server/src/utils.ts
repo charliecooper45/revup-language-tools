@@ -7,10 +7,10 @@ function getCurrentLine(document: TextDocument, line: number): string {
   });
 }
 
-export function getFirstWord(
-  document: TextDocument,
-  position: Position
-): string {
+/**
+ * @returns the command (first word) from a line
+ */
+export function getCommand(document: TextDocument, position: Position): string {
   const currentLine = getCurrentLine(document, position.line);
   return currentLine.split(' ')[0]?.trim();
 }

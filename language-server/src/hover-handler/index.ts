@@ -6,8 +6,7 @@ import {
   TextDocuments,
 } from 'vscode-languageserver';
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { RevupCommand } from '../types';
-import { getFirstWord } from '../utils';
+import { getCommand } from '../utils';
 import { HoverItem, hoverItems } from './hover-items';
 
 function buildMarkupContent(hoverItem: HoverItem): MarkupContent {
@@ -28,20 +27,16 @@ export function handleHover(
     return;
   }
 
-  // check the given hover item is valid revup syntax
-  const word = getFirstWord(document, params.position);
-  const isValidCommand = Object.values(RevupCommand).includes(
-    word as RevupCommand
-  );
-  if (!isValidCommand) {
-    return;
-  }
+  // parse the command string from the hovered line
+  const command = getCommand(document, params.position);
 
   // return the hover information for the command
-  const command = word as RevupCommand;
-  const hoverItem = hoverItems.find(
-    (hoverItem) => hoverItem.command === command
-  )!;
+  const hoverItem = hoverItems.find(({ commands }) =>
+    commands.includes(command)
+  );
+  if (!hoverItem) {
+    return;
+  }
 
   const contents = buildMarkupContent(hoverItem);
   return {
