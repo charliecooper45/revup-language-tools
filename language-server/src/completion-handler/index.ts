@@ -19,7 +19,7 @@ const completionItems: CompletionItem[] = [
     detail: 'Calls a method on a component.',
   },
   {
-    label: '-e <epoch>',
+    label: 'epoch <increment>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.EPOCH,
     detail: 'Increases or displays the current epoch.',

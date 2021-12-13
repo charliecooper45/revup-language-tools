@@ -52,9 +52,9 @@ export const hoverItems: HoverItem[] = [
   },
   {
     revupCommand: RevupCommand.EPOCH,
-    commands: ['-e'],
+    commands: ['-e', 'epoch'],
     value: buildValue(
-      ['-e <increment>'],
+      ['epoch <increment>'],
       [
         'Increases or displays the current epoch.',
         '- \\<increment> value added to epoch (optional)',
