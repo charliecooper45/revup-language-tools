@@ -15,6 +15,16 @@ function buildValue(titles: string[], body: string[]): string {
   return [...mappedTitles, '---', ...body].join('\n');
 }
 
+function buildArgs(args: string[]): string[] {
+  const mappedArgs = args.map((arg) => `\n${arg}`);
+  return ['\nARGS:', ...mappedArgs];
+}
+
+function buildResponses(responses: string[]): string[] {
+  const mappedResponses = responses.map((response) => `\n${response}`);
+  return ['\nRESPONSES:', ...mappedResponses];
+}
+
 export const hoverItems: HoverItem[] = [
   {
     revupCommand: RevupCommand.CALL_FUNCTION,
@@ -25,14 +35,18 @@ export const hoverItems: HoverItem[] = [
         'call-function <package> <blueprint> new <args> -> <resDef> <component>',
       ],
       [
-        'Creates a new component (with new) or calls a function on a blueprint.',
-        '- \\<package> the package',
-        '- \\<blueprint> the blueprint',
-        '- \\<function> the function/new',
-        '- \\<args> the args (optional)',
-        '- \\<response> the response (optional)',
-        '- \\<resDef> the resource definition (new)',
-        '- \\<component> the component (new)',
+        'Creates a new component (with new) or calls a function.',
+        ...buildArgs([
+          '```<package>```the blueprint package address',
+          '```<blueprint>```the blueprint name',
+          '```<function>```the function name/new',
+          '```<args>```the arguments, e.g. "hello", "amount,resource" for Bucket, "#id1,#id2,..,resource_address" for NFT Bucket. (optional)',
+        ]),
+        ...buildResponses([
+          '```<response>```the response (optional)',
+          '```<resDef>```the resource definition address (new)',
+          '```<component>```the component address (new)',
+        ]),
       ]
     ),
   },
@@ -43,10 +57,12 @@ export const hoverItems: HoverItem[] = [
       ['call-method <component> <method> <args> -> <response>'],
       [
         'Calls a method on a component.',
-        '- \\<component> the component',
-        '- \\<method> the method to call',
-        '- \\<args> the args (optional)',
-        '- \\<response> the response (optional)',
+        ...buildArgs([
+          '```<component>```the component address',
+          '```<method>```the method name',
+          '```<args>```the arguments, e.g. "hello", "amount,resource" for Bucket, "#id1,#id2,..,resource_address" for NFT Bucket. (optional)',
+        ]),
+        ...buildResponses(['```<response>``` the response (optional)']),
       ]
     ),
   },
@@ -57,7 +73,7 @@ export const hoverItems: HoverItem[] = [
       ['epoch <increment>'],
       [
         'Increases or displays the current epoch.',
-        '- \\<increment> value added to epoch (optional)',
+        ...buildArgs(['```<increment>```value added to epoch (optional)']),
       ]
     ),
   },
@@ -68,8 +84,10 @@ export const hoverItems: HoverItem[] = [
       ['new-account -> <account> <pubkey>'],
       [
         'Creates a new account. Set as default account if the first account created.',
-        '- \\<account> the account',
-        "- \\<pubkey> the account's public key",
+        ...buildResponses([
+          '```<account>```the account address',
+          "```<pubkey>```the account's public key",
+        ]),
       ]
     ),
   },
@@ -78,16 +96,16 @@ export const hoverItems: HoverItem[] = [
     commands: ['publish'],
     value: buildValue(
       ['publish . -> <package>'],
-      ['Publishes the package.', '- \\<package> the package']
+      [
+        'Publishes the package.',
+        ...buildResponses(['```<package>```the package address']),
+      ]
     ),
   },
   {
     revupCommand: RevupCommand.RESET,
     commands: ['reset'],
-    value: buildValue(
-      ['reset'],
-      ['Clears the resim data directory and resets the environment.']
-    ),
+    value: buildValue(['reset'], ['Resets the data directory.']),
   },
   {
     revupCommand: RevupCommand.SET_ACCOUNT,
@@ -96,8 +114,10 @@ export const hoverItems: HoverItem[] = [
       ['set-default-account <account> <pubkey>'],
       [
         'Sets the default account.',
-        '- \\<account> the account',
-        "- \\<pubkey> the account's public key",
+        ...buildArgs([
+          "```<account>```the account's address",
+          "```<pubkey>```the account's public key",
+        ]),
       ]
     ),
   },
@@ -106,7 +126,10 @@ export const hoverItems: HoverItem[] = [
     commands: ['show'],
     value: buildValue(
       ['show <address>'],
-      ['Shows info about an address.', '- \\<address> the address']
+      [
+        'Displays the content behind an address.',
+        ...buildArgs(['```<address>```the address']),
+      ]
     ),
   },
   {
