@@ -17,7 +17,7 @@
 
 - `call-method`
 - `call-function`
-- `-e`
+- `epoch`
 - `new-account`
 - `publish`
 - `reset`
