@@ -36,8 +36,8 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc",
-    "watch": "tsc -w",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
     "lint": "eslint ./src ./language-server/src --ext .ts,.tsx",
     "postinstall": "cd ./language-server && npm install && cd .."
   },

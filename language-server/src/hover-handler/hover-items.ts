@@ -17,20 +17,6 @@ function buildValue(titles: string[], body: string[]): string {
 
 export const hoverItems: HoverItem[] = [
   {
-    revupCommand: RevupCommand.CALL_METHOD,
-    commands: ['call-method'],
-    value: buildValue(
-      ['call-method <component> <method> <args> -> <response>'],
-      [
-        'Calls a method on a component.',
-        '- \\<component> the component',
-        '- \\<method> the method to call',
-        '- \\<args> the args (optional)',
-        '- \\<response> the response (optional)',
-      ]
-    ),
-  },
-  {
     revupCommand: RevupCommand.CALL_FUNCTION,
     commands: ['call-function'],
     value: buildValue(
@@ -47,6 +33,20 @@ export const hoverItems: HoverItem[] = [
         '- \\<response> the response (optional)',
         '- \\<resDef> the resource definition (new)',
         '- \\<component> the component (new)',
+      ]
+    ),
+  },
+  {
+    revupCommand: RevupCommand.CALL_METHOD,
+    commands: ['call-method'],
+    value: buildValue(
+      ['call-method <component> <method> <args> -> <response>'],
+      [
+        'Calls a method on a component.',
+        '- \\<component> the component',
+        '- \\<method> the method to call',
+        '- \\<args> the args (optional)',
+        '- \\<response> the response (optional)',
       ]
     ),
   },

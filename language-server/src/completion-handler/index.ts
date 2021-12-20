@@ -10,13 +10,13 @@ const completionItems: CompletionItem[] = [
     label: 'call-function $package <blueprint> <function> <args> -> <response>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.CALL_FUNCTION,
-    detail: 'Calls a function on a blueprint.',
+    detail: 'Calls a function.',
   },
   {
     label: 'call-method $component <method> <args> -> <response>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.CALL_METHOD,
-    detail: 'Calls a method on a component.',
+    detail: 'Calls a method.',
   },
   {
     label: 'epoch <increment>',
@@ -28,10 +28,11 @@ const completionItems: CompletionItem[] = [
     label: 'new-account -> account pubkey',
     kind: CompletionItemKind.Text,
     data: RevupCommand.NEW_ACCOUNT,
-    detail: 'Creates a new account.',
+    detail: 'Creates an account.',
   },
   {
-    label: 'call-function $package <blueprint> new -> resourceDef component',
+    label:
+      'call-function $package <blueprint> new <args> -> resourceDef component',
     kind: CompletionItemKind.Text,
     data: RevupCommand.NEW_COMPONENT,
     detail: 'Creates a new component instance.',
@@ -40,13 +41,13 @@ const completionItems: CompletionItem[] = [
     label: 'publish . -> package',
     kind: CompletionItemKind.Text,
     data: RevupCommand.PUBLISH,
-    detail: 'Publishes the package.',
+    detail: 'Publishes a package.',
   },
   {
     label: 'reset',
     kind: CompletionItemKind.Text,
     data: RevupCommand.RESET,
-    detail: 'Clears resim data and resets the environment.',
+    detail: 'Resets the data directory.',
   },
   {
     label: 'set-default-account <account> <pubkey>',
@@ -58,13 +59,13 @@ const completionItems: CompletionItem[] = [
     label: 'show <address>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.SHOW,
-    detail: 'Shows info about an address.',
+    detail: 'Displays the content behind an address.',
   },
   {
     label: 'show-configs',
     kind: CompletionItemKind.Text,
     data: RevupCommand.SHOW_CONFIGS,
-    detail: 'Prints the default account, epoch and nonce.',
+    detail: 'Displays configurations.',
   },
 ];
 
