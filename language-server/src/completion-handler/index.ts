@@ -2,6 +2,7 @@ import {
   CompletionItem,
   CompletionItemKind,
   CompletionParams,
+  InsertTextFormat,
 } from 'vscode-languageserver';
 import { RevupCommand } from '../types';
 
@@ -11,24 +12,34 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.CALL_FUNCTION,
     detail: 'Calls a function.',
+    insertText:
+      'call-function \\$package ${1:<blueprint>} ${2:<function>} ${3:<args>} -> ${4:<response>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'call-method $component <method> <args> -> <response>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.CALL_METHOD,
     detail: 'Calls a method.',
+    insertText:
+      'call-method \\$component ${1:<method>} ${2:<args>} -> ${3:<response>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'epoch <increment>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.EPOCH,
     detail: 'Increases or displays the current epoch.',
+    insertText: 'epoch ${1:<increment>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'export-abi <package> <blueprint>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.EXPORT_ABI,
     detail: 'Exports the ABI of a blueprint.',
+    insertText: 'export-abi ${1:<package>} ${2:<blueprint>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'new-account -> account pubkey',
@@ -42,6 +53,9 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.NEW_COMPONENT,
     detail: 'Creates a new component instance.',
+    insertText:
+      'call-function \\$package ${1:<blueprint>} new ${2:<args>} -> resourceDef component',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'publish . -> package',
@@ -60,12 +74,16 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.SET_ACCOUNT,
     detail: 'Sets the default account.',
+    insertText: 'set-default-account ${1:<account>} ${2:<pubkey>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'show <address>',
     kind: CompletionItemKind.Text,
     data: RevupCommand.SHOW,
     detail: 'Displays the content behind an address.',
+    insertText: 'show ${1:<address>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
   {
     label: 'show-configs',
@@ -84,6 +102,8 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.TRANSFER,
     detail: 'Transfers resource to another account.',
+    insertText: 'transfer ${1:<resource>} ${2:<recipient>}',
+    insertTextFormat: InsertTextFormat.Snippet,
   },
 ];
 
