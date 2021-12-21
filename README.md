@@ -18,12 +18,15 @@
 - `call-method`
 - `call-function`
 - `epoch`
+- `export-abi`
 - `new-account`
 - `publish`
 - `reset`
 - `set-default-account`
 - `show`
 - `show-configs`
+- `show-ledger`
+- `transfer`
 
 ## Installing locally
 

@@ -78,6 +78,20 @@ export const hoverItems: HoverItem[] = [
     ),
   },
   {
+    revupCommand: RevupCommand.EXPORT_ABI,
+    commands: ['export-abi'],
+    value: buildValue(
+      ['export-abi <package> <blueprint>'],
+      [
+        'Exports the ABI of a blueprint.',
+        ...buildArgs([
+          '```<package>```the blueprint package address',
+          '```<blueprint>```the blueprint name',
+        ]),
+      ]
+    ),
+  },
+  {
     revupCommand: RevupCommand.NEW_ACCOUNT,
     commands: ['new-account'],
     value: buildValue(
@@ -138,6 +152,25 @@ export const hoverItems: HoverItem[] = [
     value: buildValue(
       ['show-configs'],
       ['Prints the default account, current epoch and nonce.']
+    ),
+  },
+  {
+    revupCommand: RevupCommand.SHOW_LEDGER,
+    commands: ['show-ledger'],
+    value: buildValue(['show-ledger'], ['Displays ledger summary.']),
+  },
+  {
+    revupCommand: RevupCommand.TRANSFER,
+    commands: ['transfer'],
+    value: buildValue(
+      ['transfer <resource> <recipient>'],
+      [
+        'Transfers resource to another account.',
+        ...buildArgs([
+          '```<resource>```the resource to transfer, e.g. "amount,resource_address" or "#nft_id1,#nft_id2,..,resource_address',
+          '```<recipient>```the recipient address',
+        ]),
+      ]
     ),
   },
 ];

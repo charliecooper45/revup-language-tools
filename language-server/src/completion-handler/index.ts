@@ -25,6 +25,12 @@ const completionItems: CompletionItem[] = [
     detail: 'Increases or displays the current epoch.',
   },
   {
+    label: 'export-abi <package> <blueprint>',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.EXPORT_ABI,
+    detail: 'Exports the ABI of a blueprint.',
+  },
+  {
     label: 'new-account -> account pubkey',
     kind: CompletionItemKind.Text,
     data: RevupCommand.NEW_ACCOUNT,
@@ -66,6 +72,18 @@ const completionItems: CompletionItem[] = [
     kind: CompletionItemKind.Text,
     data: RevupCommand.SHOW_CONFIGS,
     detail: 'Displays configurations.',
+  },
+  {
+    label: 'show-ledger',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.SHOW_LEDGER,
+    detail: 'Displays ledger summary.',
+  },
+  {
+    label: 'transfer <resource> <recipient>',
+    kind: CompletionItemKind.Text,
+    data: RevupCommand.TRANSFER,
+    detail: 'Transfers resource to another account.',
   },
 ];
 
