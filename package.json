@@ -13,7 +13,9 @@
     "vscode": "^1.52.0"
   },
   "activationEvents": [
-    "onLanguage:revup"
+    "onLanguage:revup",
+    "onCommand:revup.createFile",
+    "onCommand:revup.runFile"
   ],
   "main": "./out/extension",
   "contributes": {
@@ -26,7 +28,18 @@
         ],
         "extensions": [
           ".rev"
-        ]
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "revup.createFile",
+        "title": "Revup: Create revup file"
+      },
+      {
+        "command": "revup.runFile",
+        "title": "Revup: Run revup file"
       }
     ]
   },
@@ -41,14 +54,14 @@
     "lint": "eslint ./src ./language-server/src --ext .ts,.tsx",
     "postinstall": "cd ./language-server && npm install && cd .."
   },
-  "dependencies": {
-    "vscode-languageclient": "^7.0.0"
-  },
   "references": [
     {
       "path": "./language-server"
     }
   ],
+  "dependencies": {
+    "vscode-languageclient": "^7.0.0"
+  },
   "devDependencies": {
     "@types/node": "^12.12.0",
     "@types/vscode": "^1.52.0",

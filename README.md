@@ -10,10 +10,13 @@
 
 ## Features
 
-- Syntax highlighting for `.rev` files
-- Code completion on `resim` commands
+- Code completion
+- Documentation on hover
+- Commands (accessible through the command palette):
+  - `Create revup file`: generates a `.rev` file in the workspace
+  - `Run rev file`: runs a `.rev` file in the integrated terminal
 
-## Supported Commands
+### Supported resim Commands
 
 - `call-method`
 - `call-function`

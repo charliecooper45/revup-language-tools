@@ -1,12 +1,12 @@
 import * as path from 'path';
 import { ExtensionContext } from 'vscode';
-
 import {
   LanguageClient,
   LanguageClientOptions,
   ServerOptions,
   TransportKind,
 } from 'vscode-languageclient/node';
+import { addCommands } from './commands';
 
 let client: LanguageClient;
 
@@ -35,6 +35,8 @@ export function activate(context: ExtensionContext) {
     serverOptions,
     clientOptions
   );
+
+  addCommands(context);
 
   client.start();
 }

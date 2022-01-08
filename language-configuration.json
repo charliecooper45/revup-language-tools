@@ -1,0 +1,7 @@
+{
+  // https://code.visualstudio.com/api/language-extensions/language-configuration-guide
+  "comments": {
+    "lineComment": "//"
+  },
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\#\\%\\^\\&\\*\\-\\=\\+\\{\\}\\(\\)\\[\\]\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\s]+)"
+}
